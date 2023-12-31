@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+  <hr color="blue">
+<body>
+  <center>
+  <h1> Guess the Number  </h1>
+  <input placeholder="Guess a Number"id="guess" type="number">
+  <button  id="btn"onclick="check()">Check</button>
+  <h3 id="result">Result:Right/Wrong</h3>
+  <h3 id="score">Score:10  </h3>
+  </center>
+  <script>
+  var guessednumber = document.getElementById("guess")
+  
+  var randomnumber=Math.floor(Math.random()*10)+1
+  var result=document.getElementById("result")
+  var score=document.getElementById("score")
+  var totalscore=10
+  button=document.getElementById("btn")
+   function check(){
+     var enterednumber=guessednumber.value
+    if(randomnumber==enterednumber){
+      result.textContent="Right"
+      window.alert("You Won Hurayyyyy ,see your score and compete,Refresh the page to play again")
+    }else{
+      result.textContent="Wrong"
+      
+      totalscore=totalscore-1
+      score.textContent="Score:" +totalscore
+    }
+    if(
+      totalscore<=0){
+        result.textContent="You Lost,Gameover"
+        button.disabled=true
+        guessednumber.disabled=true
+        window.alert("The random number is:"+randomnumber)
+      }
+      if(totalscore==5){
+        window.alert("clue:Number is between 0 and 10")
+      }
+     if(totalscore==9){
+       window.alert("clue:Number is between 0 and 20")
+     }
+  }
+  </script>
+  <style>
+ body {
+    background:pink;
+    color:black
+  }
+  
+  </style>
+  <hr color="red">
+</body>
